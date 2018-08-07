@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/d-landing-p
+    docker:
+    - image: circleci/node:9.4.0
+    steps:
+    - checkout
+    - run:
+        name: npm-install
+        command: 'sudo npm install'
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+        - ./node_modules
+    - run:
+        name: run-tsc
+        command: 'npm run build-ts'
+    - run:
+        name: run-ts-lint
+        command: 'npm run tslint'
+    - run:
+        name: run-tests
+        command: 'npm test'
