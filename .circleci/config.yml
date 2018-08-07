@@ -6,22 +6,24 @@ jobs:
     - image: circleci/node:8.11.3
     steps:
     - checkout
+    - restore_cache:
+        name: Restore Yarn Package Cache
+        keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
     - run:
-        name: allow-install
-        command: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
-    - run:
-        name: npm-install
-        command: 'sudo npm install'
+        name: Install dependencies
+        command: 'sudo yarn install'
     - save_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
+        name: Save Yarn Package Cach
+        key: yarn-packages-{{ checksum "yarn.lock" }}
         paths:
-        - ./node_modules
+        - ~/.cache/yarn
     - run:
-        name: run-tsc
-        command: 'npm run build-ts'
+        name: Run Typescript
+        command: 'yarn build-ts'
     - run:
-        name: run-ts-lint
-        command: 'npm run tslint'
+        name: Run Typescript lint
+        command: 'yarn tslint'
     - run:
-        name: run-tests
-        command: 'npm test'
+        name: Run tests
+        command: 'yarn test'
