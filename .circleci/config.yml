@@ -27,3 +27,20 @@ jobs:
     - run:
         name: Run tests
         command: 'yarn test'
+
+  tests:
+    working_directory: ~/d-landing-p
+    docker:
+    - image: cypress/base:8
+      environment:
+        TERM: xterm
+    steps:
+    - run:
+        name: Run cypress e2e testing
+        command: 'yarn cypress:run'
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
