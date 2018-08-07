@@ -4,6 +4,8 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import webpack from "webpack";
+import lusca from "lusca";
+import dotenv from "dotenv";
 import webpackDevMiddleWare from "webpack-dev-middleware";
 import webpackConfig from "./webpack.config";
 
@@ -14,6 +16,9 @@ const app = express();
 // port
 app.set("port", process.env.PORT || 3000);
 
+// load environment variables
+dotenv.config({ path: ".env.example" });
+
 // webpack
 app.use(webpackDevMiddleWare(webpack(webpackConfig)));
 
@@ -21,11 +26,16 @@ app.use(webpackDevMiddleWare(webpack(webpackConfig)));
 app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "hbs");
 
+// loggers
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+// security
+app.use(lusca.xframe("SAMEORIGIN"));
+app.use(lusca.xssProtection(true));
 
 // routes
 app.use(routes);
