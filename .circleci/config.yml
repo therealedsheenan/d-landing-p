@@ -6,7 +6,7 @@ jobs:
     - image: circleci/node:8.11.3
     steps:
     - checkout
-    - run
+    - run:
         name: allow-install
         command: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
     - run:
