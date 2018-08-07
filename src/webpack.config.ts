@@ -2,7 +2,7 @@ import path from "path";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 export default {
-  entry: ["./styles/main.scss"],
+  entry: ["./src/assets/styles/main.scss"],
   module: {
     rules: [{
       test: /\.scss$/,
