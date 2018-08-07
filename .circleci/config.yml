@@ -35,6 +35,14 @@ jobs:
       environment:
         TERM: xterm
     steps:
+    - checkout
+    - restore_cache:
+        name: Restore Yarn Package Cache
+        keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
+    - run:
+        name: Install dependencies
+        command: 'sudo yarn install'
     - run:
         name: Run cypress e2e testing
         command: 'yarn cypress:run'
