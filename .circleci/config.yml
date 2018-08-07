@@ -18,9 +18,9 @@ jobs:
         key: yarn-packages-{{ checksum "yarn.lock" }}
         paths:
         - ~/.cache/yarn
-    - run:
-        name: Run Typescript
-        command: 'yarn build-ts'
+#    - run:
+#        name: Run Typescript
+#        command: 'yarn build-ts'
     - run:
         name: Run Typescript lint
         command: 'yarn tslint'
