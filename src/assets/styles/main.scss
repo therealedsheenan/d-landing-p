@@ -1,5 +1,8 @@
-@import "normalize";
+// resets
+@import "utils/normalize";
 
-body {
-  background-color: white;
-}
+// libraries
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// modules
+@import "modules/home";

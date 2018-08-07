@@ -1,0 +1,21 @@
+.home {
+  position: relative;
+  .dummy-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  &-item {
+    width: 100%;
+    background-color: $orange;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &-submenu {
+    padding-top: 50%;
+  }
+}
