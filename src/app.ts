@@ -24,7 +24,7 @@ app.use(webpackDevMiddleWare(webpack(webpackConfig)));
 
 // view engine setup
 app.set("views", path.join(__dirname, "../views"));
-app.engine(".hbs", expressHbs({defaultLayout: "layout", extname: ".hbs"}));
+app.engine(".hbs", expressHbs({ defaultLayout: "layout", extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
 // loggers
