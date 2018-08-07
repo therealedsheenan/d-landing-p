@@ -27,7 +27,6 @@ jobs:
     - run:
         name: Run tests
         command: 'yarn test'
-
   tests:
     working_directory: ~/d-landing-p
     docker:
@@ -40,6 +39,9 @@ jobs:
         name: Restore Yarn Package Cache
         keys:
         - yarn-packages-{{ checksum "yarn.lock" }}
+    - run:
+      name: Install sudo
+      command: 'apt-get install -y sudo'
     - run:
         name: Install dependencies
         command: 'sudo yarn install'
