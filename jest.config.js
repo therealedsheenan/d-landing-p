@@ -6,13 +6,14 @@ module.exports = {
   },
   moduleFileExtensions: [
     'ts',
-    'js'
+    'js',
+    'json'
   ],
   transform: {
-    '^.+\\.(ts|tsx)$': './node_modules/ts-jest/preprocessor.js'
+    '^.+\\.(ts|tsx)$': 'ts-jest'
   },
   testMatch: [
-    '**/test/**/*.test.(ts|js)'
+    '**/__tests__/**/*.spec.(ts|js)'
   ],
   testEnvironment: 'node'
 };
