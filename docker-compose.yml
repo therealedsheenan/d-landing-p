@@ -1,8 +1,8 @@
 version: '3'
 services:
   web:
-    container_name: min-ts-node
-    image: node:8.11.1
+    container_name: landing-page
+    image: node:8.11.3
     working_dir: /app
     environment:
     - NODE_ENV=development
