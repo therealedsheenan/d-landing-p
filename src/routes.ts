@@ -1,19 +1,13 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
+
+import * as homeController from "./controllers/home";
 
 const router = express.Router();
 
-/*
-* GET home page.
-*/
-router.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.render("index", { title: "Landing page.", description: "This is the landing page" });
-});
+// home page
+router.get("/", homeController.index);
 
-/*
-* GET users listing
-*/
-router.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("This is the users endpoint.");
-});
+// sample page
+router.get("/user", homeController.sample);
 
 export default router;
