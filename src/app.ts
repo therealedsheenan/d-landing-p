@@ -1,13 +1,15 @@
-import createError from "http-errors";
-import express, { Request, Response, NextFunction } from "express";
-import path from "path";
 import cookieParser from "cookie-parser";
-import logger from "morgan";
-import webpack from "webpack";
-import lusca from "lusca";
 import dotenv from "dotenv";
-import webpackDevMiddleWare from "webpack-dev-middleware";
+import express, { NextFunction, Request, Response } from "express";
 import expressHbs from "express-handlebars";
+import createError from "http-errors";
+import lusca from "lusca";
+import logger from "morgan";
+
+import path from "path";
+import webpack from "webpack";
+
+import webpackDevMiddleWare from "webpack-dev-middleware";
 import webpackConfig from "./webpack.config";
 
 import routes from "./routes";
