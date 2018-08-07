@@ -7,10 +7,10 @@ import webpack from "webpack";
 import lusca from "lusca";
 import dotenv from "dotenv";
 import webpackDevMiddleWare from "webpack-dev-middleware";
+import expressHbs from "express-handlebars";
 import webpackConfig from "./webpack.config";
 
 import routes from "./routes";
-
 const app = express();
 
 // port
@@ -24,7 +24,8 @@ app.use(webpackDevMiddleWare(webpack(webpackConfig)));
 
 // view engine setup
 app.set("views", path.join(__dirname, "../views"));
-app.set("view engine", "hbs");
+app.engine(".hbs", expressHbs({defaultLayout: "layout", extname: ".hbs"}));
+app.set("view engine", ".hbs");
 
 // loggers
 app.use(logger("dev"));
