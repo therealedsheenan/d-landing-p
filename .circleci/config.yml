@@ -40,8 +40,8 @@ jobs:
         keys:
         - yarn-packages-{{ checksum "yarn.lock" }}
     - run:
-      name: Install sudo
-      command: 'apt-get install -y sudo'
+        name: Install sudo
+        command: 'apt-get install -y sudo'
     - run:
         name: Install dependencies
         command: 'sudo yarn install'
