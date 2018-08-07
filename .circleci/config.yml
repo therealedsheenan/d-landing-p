@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/d-landing-p
     docker:
-    - image: circleci/node:9.4.0
+    - image: circleci/node:8.11.3
     steps:
     - checkout
     - run:
