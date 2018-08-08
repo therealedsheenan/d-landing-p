@@ -15,7 +15,7 @@ import routes from "./routes";
 const app = express();
 
 // port
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 8000);
 
 // load environment variables
 dotenv.config({ path: ".env.example" });
