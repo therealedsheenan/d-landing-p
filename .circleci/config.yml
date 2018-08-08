@@ -18,21 +18,15 @@ jobs:
         key: yarn-packages-{{ checksum "yarn.lock" }}
         paths:
         - ~/.cache/yarn
-#    - run:
-#        name: Run Typescript
-#        command: 'yarn build-ts'
+    - run:
+        name: Run Typescript
+        command: 'yarn build-ts'
     - run:
         name: Run Typescript lint
         command: 'yarn tslint'
     - run:
         name: Run tests
         command: 'yarn test'
-    - run:
-        name: Install sudo
-        command: 'apt-get install -y sudo'
-    - run:
-        name: Install dependencies
-        command: 'sudo yarn install'
 # add this line if staging or production server is ready
 #    - run:
 #        name: Run cypress e2e testing
