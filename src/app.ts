@@ -5,11 +5,10 @@ import expressHbs from "express-handlebars";
 import createError from "http-errors";
 import lusca from "lusca";
 import logger from "morgan";
-
 import path from "path";
 import webpack from "webpack";
-
 import webpackDevMiddleWare from "webpack-dev-middleware";
+
 import webpackConfig from "./webpack.config";
 
 import routes from "./routes";
