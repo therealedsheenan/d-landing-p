@@ -20,7 +20,6 @@ context('Connectors', () => {
       .its('length')
       .should('be.gt', 2)
   })
-
   it('.invoke() - invoke a function on the current subject', () => {
     // our div is hidden in our script.js
     // $('.connectors-div').hide()

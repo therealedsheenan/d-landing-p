@@ -32,5 +32,18 @@ $ yarn cypress run # running cypress
 
 Checkout `npm scripts` for other commands.
 
+## Installing Ansible
+Using vagrant `hashicorp/precise64` vm box.
+```
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install ansible
+```
+
+For more information:
+https://www.ansible.com/resources/get-started
+
 #### Author
 Sheenan Tenepre
