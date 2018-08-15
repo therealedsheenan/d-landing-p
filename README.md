@@ -9,12 +9,6 @@ $ yarn build
 $ yarn watch-debug # watch mode node and typescript
 ```
 
-##### Run with Docker
-Simple run docker-compose
-```
-$ docker-compose up
-```
-
 ### Testing
 
 Unit and integation testing
